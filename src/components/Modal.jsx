@@ -8,15 +8,15 @@ import {
   DialogTitle,
 } from "@headlessui/react";
 import { ExclamationTriangleIcon, LinkIcon } from "@heroicons/react/24/outline";
-import { Link , useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-export default function Modal({setIsUserLogin}) {
+export default function Modal({ setIsUserLogin }) {
   const [open, setOpen] = useState(true);
-const navigate = useNavigate()
+  const navigate = useNavigate();
   const handleNavigateToLogin = () => {
-    navigate('/')
-    setIsUserLogin(false)
-  }
+    navigate("/");
+    setIsUserLogin(false);
+  };
   return (
     <Dialog open={open} onClose={setOpen} className="relative z-10">
       <DialogBackdrop
@@ -61,7 +61,7 @@ const navigate = useNavigate()
                 onClick={() => setOpen(false)}
                 className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
               >
-                <a onClick={handleNavigateToLogin} > Logout</a>
+                <a onClick={handleNavigateToLogin}> Logout</a>
               </button>
               <button
                 type="button"

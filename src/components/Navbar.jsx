@@ -26,7 +26,11 @@ function Navbar(props) {
 
   console.log(openSider, "OPEN SIDER");
   const logout = () => {
-    setModal(true);
+    // setModal((modal) => !!modal);
+    
+    setModal(!modal);
+   
+
   };
 
   const cartContext = useContext(cartDataContext);
