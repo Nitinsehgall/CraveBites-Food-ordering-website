@@ -47,7 +47,7 @@ function LoginPage({ setIsUserLogin }) {
 
       <h1>{successfull}</h1>
       <h2 className=" text-lg bg-black border-r-1 text-white text-center">
-                Name is : <span className="spn">admin </span> Password is:{" "}
+                {/* Name is : <span className="spn">admin </span> Password is:{" "} */}
                 <span className="spn">123</span>
               </h2>
       
