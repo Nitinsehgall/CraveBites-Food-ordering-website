@@ -7,7 +7,7 @@ export default function Badges(props) {
   return (
     <Badge badgeContent={props.badgeContent} color="primary">
       
-      <ShoppingCartIcon className='badgeIcon' color="warning" />
+      <ShoppingCartIcon className='badgeIcon text-green-400'  />
     </Badge>
   );
 }

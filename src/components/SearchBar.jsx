@@ -2,7 +2,7 @@ import React from "react";
 import searchLogo from "../assets/Images/SearchLogos.png";
 import Items from "../content/Items";
 
-function SearchBar({ foodItems, setFoodItems }) {
+function SearchBar({ foodItems, setFoodItems ,setCommonData}) {
   const search = (e) => {
     console.log(e.target.value);
     let inputValue = e.target.value;
@@ -18,7 +18,7 @@ function SearchBar({ foodItems, setFoodItems }) {
   };
   return (
     <>
-      <div className="search-parent">
+      <div className="search-parent ">
         <img src={searchLogo} alt="logo" />
         <input
           onInput={search}

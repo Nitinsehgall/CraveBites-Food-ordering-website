@@ -26,7 +26,7 @@ export default function LandingPage2() {
           Most purchased Items this months    
            <i className="text-yellow-400 fa-solid fa-star"></i>
            <i className="text-yellow-400 fa-solid fa-star"></i>
-          <i class="text-yellow-400 fa-solid fa-star"></i>
+          <i className="text-yellow-400 fa-solid fa-star"></i>
         </h2>
 
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
@@ -36,7 +36,7 @@ export default function LandingPage2() {
               <div key={product.id} className="group relative">
                 <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-50 lg:aspect-none group-hover:opacity-75 lg:h-80 LandingPage2Containers">
                   <Link to="/menu">
-                    <p className="text-gray-950 text-xl text-center">
+                    <p className="text-gray-950 font-bold text-xl text-center">
                     {product.name}: ₹{Object.values(product.options[0])[0]}
                     </p>
                     <img

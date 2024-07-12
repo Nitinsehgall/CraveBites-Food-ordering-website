@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Footer() {
   const footerContent = [
@@ -9,14 +10,14 @@ function Footer() {
   ];
   const FooterContent2 = [
     { name: "Policy", link: null, class: "policy text-white" },
-    { name: "FAQ", link: null ,class: "text-white"},
+    { name: "FAQ", link: 'FAQ' ,class: "text-white"},
     { name: "Privacy", link: null ,class: "text-white"},
     { name: "Shipping", link: null ,class: "text-white"},
   ];
 
   return (
     <>
-      <div className="footerAll flex-wrap bg-black">
+      <div className="footerAll flex-wrap bg-slate-950">
         <div className="FooterAddress text-white">
           <h4>CraveBites</h4>
           
@@ -34,9 +35,9 @@ function Footer() {
               <>
                 <ul>
                   <li>
-                    <a className={element.class} href={element.link}>
+                    <Link className={element.class} to={element.link}>
                       {element.name}
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </>
@@ -49,9 +50,9 @@ function Footer() {
               <>
                 <ul>
                   <li>
-                    <a className={element.class} href="">
+                    <Link className={element.class} to={element.link}>
                       {element.name}
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </>
@@ -65,7 +66,7 @@ function Footer() {
         </div>
       </div>
       <div className="footerEnd bg-slate-900 text-slate-50">
-        <p>&copy; 2024 created and design by Nitin Sehgal</p>
+        <p>&copy; 2024 Created and Design by Nitin Sehgal</p>
       </div>
     </>
   );

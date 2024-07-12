@@ -2,7 +2,7 @@ import "./App.css";
 import { createContext, useEffect, useState } from "react";
 import { cartDataContext } from "./utils/contextApi";
 import LoginPage from "./screens/LoginPage";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useParams } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import LandingPage from "./components/LandingPage";
 import Myorder from "./screens/Myorder";
@@ -14,9 +14,23 @@ import ErrorPage from "./screens/ErrorPage";
 import ContactUs from "./components/ContactUs";
 import Modal from "./components/Modal";
 import { Crousal } from "./components/Crousal";
+import Faq from "./screens/Faq";
 
 function App() {
   const [showNav, setShowNav] = useState(false);
+const params = useParams()
+  const [ commonData, setCommonData ] = useState()
+  const [ isUserLogin, setIsUserLogin ] = useState(false)
+
+  useEffect(() => {
+    
+    if(params?.keys?.length == undefined){
+      setIsUserLogin(false)  
+    }else {
+
+      setIsUserLogin(true)
+    }
+  },[])
 
   useEffect(() => {
     const checkLoggedUser = localStorage.getItem("isUserLoggedIn");
@@ -28,66 +42,72 @@ function App() {
 
   console.log(showNav, "STATE");
 
+  const Context = cartDataContext
+
   return (
     <>
       <BrowserRouter>
+      <Context.Provider value={commonData}>
+
+      
+      {isUserLogin && <Navbar  setIsUserLogin={setIsUserLogin}/>}
         <Routes>
-          <Route path="/" element={<LoginPage />} />
+          <Route path="/" element={<LoginPage setIsUserLogin={setIsUserLogin}/>} />
           <Route
             path="/home"
             element={
-              <Layout>
+              <>
                 <Crousal />
                 <LandingPage />
-              </Layout>
+              </>
             }
           />{" "}
           {/* Redirect /home to LandingPage */}
           <Route
             path="/my-orders"
             element={
-              <Layout>
                 <Myorder />
-              </Layout>
             }
           />
           <Route
             path="/aboutus"
             element={
-              <Layout>
                 <About />
-              </Layout>
             }
           />
           <Route
             path="/menu"
             element={
-              <Layout>
-                <Main />
-              </Layout>
+                <Main commonData={commonData} setCommonData={setCommonData} />
             }
           />
           <Route
             path="*"
             element={
-              <Layout>
-                <>
+             
                   <ErrorPage />
-                </>
-              </Layout>
+               
             }
           />
           <Route
             path="/contactUs"
             element={
-              <Layout>
-                <>
+             
                   <ContactUs />
-                </>
-              </Layout>
+                
+            }
+          />
+          <Route
+            path="/FAQ"
+            element={
+             
+                  <Faq/>
+                
             }
           />
         </Routes>
+       {isUserLogin && <Footer setIsUserLogin={setIsUserLogin}/>}
+        </Context.Provider>
       </BrowserRouter>
     </>
   );

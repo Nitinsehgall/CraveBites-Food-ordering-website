@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import img from "../assets/Images/loginImg.png";
 import LandingPage from "../components/LandingPage";
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
+import Location from "../components/Location";
 
-
-function LoginPage() {
+function LoginPage({ setIsUserLogin }) {
   const name = "admin";
   const password = "123";
   const [inputVal, setInputVal] = useState("");
@@ -35,6 +35,7 @@ function LoginPage() {
       navigate("/home");
       setSuccessfull("logged in successfull");
       setIntial(true);
+      setIsUserLogin(true);
       localStorage.setItem("isUserLoggedIn", true);
     } else {
       alert("Wrong Username and password");
@@ -42,54 +43,64 @@ function LoginPage() {
   };
   return (
     <>
+    <div className="h-screen">
+
       <h1>{successfull}</h1>
-      <h2>
-        Name is : <span className="spn">admin </span> Password is:{" "}
-        <span className="spn">123</span>
-      </h2>
-      <div className="LoginParent">
-        <div className="LoginChild">
+      <h2 className=" text-lg bg-black border-r-1 text-white text-center">
+                Name is : <span className="spn">admin </span> Password is:{" "}
+                <span className="spn">123</span>
+              </h2>
+      
+             
+      <div className="LoginParent bg-gradient-to-r from-green-400 to-blue-500 text-white">
+        
+        <div className="LoginChild ">
           <div className="imgDiv">
-            <h1>
-              Welcome to CraveBites <i className="fa-solid fa-utensils"></i>
+            <h1 className="bg-gradient-to-r from-green-400 to-blue-500  text-white">
+            Welcome to CraveBites <i className="text-yellow-300 fa-solid fa-utensils"></i>
+              
             </h1>
-            <img className="rounded-md" src="https://www.freeiconspng.com/thumbs/fast-food-png/fast-food-png-most-popular-fast-food-snacks-in-your-area-and-most--3.png" alt="" />
+            <img
+              className="rounded-md"
+              src="https://www.freeiconspng.com/thumbs/fast-food-png/fast-food-png-most-popular-fast-food-snacks-in-your-area-and-most--3.png"
+              alt=""
+            />
           </div>
           <div>
             <div className="inner1">
-              <label htmlFor="">Name</label>
+              <label className="text-white" htmlFor="">
+                Name
+              </label>
 
               <input
+                className="text-black"
                 onChange={inputName}
                 type="text"
                 placeholder="Enter Your Name"
-              />
+                />
             </div>
 
             <div className="inner2">
-              <label htmlFor="pass">Password</label>
+              <label className="text-white" htmlFor="pass">
+                Password
+              </label>
 
               <input
                 onChange={inputPassword}
                 type="password"
                 name="pass"
+                className="text-black"
                 placeholder="Enter Your Password"
-              />
+                />
             </div>
 
             <button onClick={callLanding}>Submit{intial}</button>
           </div>
         </div>
       </div>
-    
-
+                </div>
     </>
-
   );
 }
 
 export default LoginPage;
-
-
-
-

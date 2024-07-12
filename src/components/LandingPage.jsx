@@ -65,9 +65,10 @@ function LandingPage() {
       </div>
 
       <LandingPage2 />
-      <div className="secondContainer">
-        <h4>How it works</h4>
-        <h3>What We Serve</h3>
+      <div className="secondContainer flex h-96
+      ">
+        <h1 className="text-xl font-bold">How it works</h1>
+        <h1 className="text-yellow-300 text-2xl font-bold">What We Serve</h1>
         <p>
           Product Quality is Out Priority,And Always Guarantees Freshness and
           safety Until it is in your hands.
@@ -78,7 +79,7 @@ function LandingPage() {
         {divItem.map((element, index) => {
           return (
             <>
-              <div className="innerLandingCard">
+              <div className="innerLandingCard ">
                 <img src={element.img} alt="img" />
                 <h3 className="text-xl">{element.Heading}</h3>
                 <p>{element.subHeading}</p>

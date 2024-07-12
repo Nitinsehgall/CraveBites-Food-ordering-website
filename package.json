@@ -12,10 +12,12 @@
   "dependencies": {
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
+    "@fontsource/inter": "^5.0.19",
     "@fontsource/roboto": "^5.0.13",
     "@headlessui/react": "^2.1.2",
     "@heroicons/react": "^2.1.4",
     "@mui/icons-material": "^5.16.0",
+    "@mui/joy": "^5.0.0-beta.48",
     "@mui/material": "^5.16.0",
     "@mui/styled-engine-sc": "^6.0.0-alpha.18",
     "@react-login-page/page10": "^1.0.4",

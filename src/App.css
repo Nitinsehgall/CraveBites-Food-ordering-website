@@ -10,6 +10,8 @@
   font-weight: 400;
   font-style: normal;
 box-sizing: border-box;
+/* overflow-x: hidden; */
+scroll-behavior: smooth;
 }
 
 
@@ -30,7 +32,7 @@ box-sizing: border-box;
   position: fixed;
   top: 0;
   left: 0;
-  
+  margin-top: 100px;
   width: 100%;
   height: 100%;
   background-color: #DCDCDC			;
@@ -42,7 +44,7 @@ box-sizing: border-box;
   background-position: center;
   background-repeat: no-repeat; 
    filter: blur(25px); /*Apply the blur filter to the background image */
-  z-index: -1; 
+  z-index:-1; 
 }
 
 .nav {
@@ -178,6 +180,8 @@ button {
 .card-parent {
   
   /* padding-top: 70px; */
+  position: relative;
+  top: 44px;
   display: flex;
   width: 100%;
   flex-wrap: wrap;
@@ -217,7 +221,7 @@ button {
   background-color: green;
   color: white;
   margin: 0px 8px;
-  width: 15px;
+  width: 25px;
   
 }
 /* .fa-cart-shopping {
@@ -274,8 +278,8 @@ h4 span{
 }
 
 .about {
- background-color: var(--lightYellow);
-
+ /* background-color: var(--lightYellow); */
+/* background-image: linear-gradient(rgb(246, 246, 222),rgb(217, 249, 215)); */
   width: 100%;
 }
 .about p {
@@ -283,7 +287,7 @@ h4 span{
 }
 .about h1 {
   text-align: center;
-  color: var(--YellowSecond);
+
 }
 
 footer{
@@ -317,6 +321,9 @@ footer p {
   align-items: center;
   
   height: 100px;
+  top:44px;
+  position: relative;
+  z-index: 1;
 
   width: 100%;
   /* background-size: cover; */
@@ -413,17 +420,28 @@ gap: 100%;
   height: 400px;
   justify-content: space-evenly;
   align-items: center;
-  
+  height: auto;
 }
 .innerLandingCard{
   display: flex;
   justify-content: center;
+  
   align-items: center;
   flex-direction: column;
+  flex-wrap: wrap;
+  
 }
 
 @media only screen and (max-width: 1000px) {
+.innerLandingCard{
+  width: 100%;
+  
+}
 
+.landingCard{
+  width: 100%;
+  flex-direction: column;
+}
   .search-parent img{
     /* width: 20%; */
   }
@@ -433,8 +451,8 @@ gap: 100%;
   }
 }
 
-@media only screen and (max-width: 600px) {
 
+@media only screen and (max-width: 600px) {
 
 .navHome{
   display: none;
@@ -508,20 +526,6 @@ gap: 100%;
   color: #ffb700;
 
 }
-.LandingImg img{
-  animation: rotation 70s infinite linear;
-}
-
-@keyframes rotation {
-  from {
-      transform: rotate(0deg);
-  }
-  to {
-      transform: rotate(360deg);
-  }
- 
-}
-
 
 .innerLandingCard {
 /* width: 20%; */
@@ -529,8 +533,8 @@ gap: 100%;
 text-align: center;
 }
 .innerLandingCard img{
-width: 100%;
-height: fit-content;
+width: 90%;
+object-fit: contain;
 height: 200px;
 }
 .secondContainer h4{
@@ -612,7 +616,7 @@ text-align: center;
   color: black;
   display: flex;
   flex-direction: column;
-border-bottom: 1px solid black;
+/* border-bottom: 1px solid black; */
   
 }
 .slider h1{
@@ -682,7 +686,7 @@ border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  /* height: 100vh; */
   /* overflow: hidden; Hide overflow to ensure ::before stays within bounds */
 }
 
@@ -693,7 +697,7 @@ border-radius: 5px;
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('https://img.freepik.com/free-photo/view-food-assortment-with-copy-space_23-2148859557.jpg');
+  /* background-image: url('https://img.freepik.com/free-photo/view-food-assortment-with-copy-space_23-2148859557.jpg'); */
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -755,20 +759,20 @@ label {
 
 
 .imgDiv img{
-  width: 100%;
-  height: fit-content;
+  width: 75%;
+  /* height: fit-content; */
 
 }
 .imgDiv{
-  width: 40%;
+  gap: 30px;
+  width: 51%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3rem;
-
+  
 }
 .imgDiv h1{
-  width: 100%;
+  width: 80%;
   font-size: x-large;
   background-color: rgb(255, 255, 255);
   padding: 10px;
@@ -847,7 +851,7 @@ h2{
 
 .select{
   font-size: small;
-  width: 58%;
+  width: 41%;
   border: none;
 }
 
@@ -855,3 +859,42 @@ h2{
 color: rgb(155, 0, 0)
 }
 
+.LandingImg img{
+  animation: rotation 70s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+ 
+}
+
+.LandingPage2Containers img{
+  object-fit: contain;
+  width: 100%;
+ animation: roll 80s 1 ; 
+ animation: name duration timing-function delay iteration-count direction fill-mode;
+}
+@keyframes roll {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.NAVBAR{
+  /* display: flex; */
+  /* width: 100%; */
+  /* position: fixed; */
+  /* z-index: 1; */
+  
+}
+
+.no-rounded {
+  border-radius: 0 !important;
+}

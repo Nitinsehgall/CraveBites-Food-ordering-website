@@ -2,6 +2,7 @@ const aboutUsContent = [
     {
       type: "h1",
       text: "About Us",
+      class:"text-4xl font-bold text-center my-8 "
     },
     {
       type: "h2",
@@ -15,6 +16,8 @@ const aboutUsContent = [
     {
       type: "h2",
       text: "Our Story",
+      class:"text-xl"
+      
     },
     {
       type: "p",
@@ -23,6 +26,7 @@ const aboutUsContent = [
     {
       type: "h2",
       text: "What We Offer",
+      class:"text-xl",
     },
     {
       type: "p",
@@ -35,6 +39,7 @@ const aboutUsContent = [
     {
       type: "h2",
       text: "Join Our Community",
+      class:"text-xl"
     },
     {
       type: "p",
@@ -47,4 +52,5 @@ const aboutUsContent = [
   ];
   
   export default aboutUsContent;
+  
   
