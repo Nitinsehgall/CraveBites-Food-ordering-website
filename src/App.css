@@ -765,14 +765,14 @@ label {
 }
 .imgDiv{
   gap: 30px;
-  width: 51%;
+  width: 40%;
   display: flex;
   flex-direction: column;
   align-items: center;
   
 }
 .imgDiv h1{
-  width: 80%;
+  /* width: 80%; */
   font-size: x-large;
   background-color: rgb(255, 255, 255);
   padding: 10px;
