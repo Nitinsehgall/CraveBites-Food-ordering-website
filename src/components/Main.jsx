@@ -1,23 +1,40 @@
+import { useEffect, useState } from "react";
+import Card from "../components/Card";
+import Footer from "../components/Footer";
+import Navbar from "./Navbar";
+import SearchBar from "./SearchBar";
+import SideWindow from "./SideWindow";
+import Loading from "./Loading";
+import AddressPage from "./AddressPage";
 
-import { useState } from 'react';
-import Card from '../components/Card'
-import Footer from '../components/Footer'
-import Navbar from './Navbar'
-import SearchBar from './SearchBar'
-import SideWindow from './SideWindow';
-
-function Main({commonData, setCommonData}) {
+function Main({ commonData, setCommonData }) {
   const [foodItems, setFoodItems] = useState([]);
+  const [loader, setLoader] = useState(true);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setLoader(!loader);
+    }, 1000);
+  }, []);
+
+  console.log(loader);
   return (
-    <div className='Main'>
-    {/* <Navbar/> */}
-    <SearchBar foodItems={foodItems} setFoodItems={setFoodItems}/>
-      <Card foodItems={foodItems} setFoodItems={setFoodItems} setCommonData={setCommonData} />
-      
-
-    </div>
-  )
+    <>
+      {loader == true ? (
+        <Loading />
+      ) : (
+        <div className="Main">
+         
+          <SearchBar foodItems={foodItems} setFoodItems={setFoodItems} />
+          <Card
+            foodItems={foodItems}
+            setFoodItems={setFoodItems}
+            setCommonData={setCommonData}
+          />
+        </div>
+      )}
+    </>
+  );
 }
 
-export default Main
+export default Main;

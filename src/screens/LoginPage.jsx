@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import Loading from '../components/Loading'
 function LoginPage({ setIsUserLogin }) {
   const name = "admin";
   const password = "123";
@@ -41,7 +41,7 @@ function LoginPage({ setIsUserLogin }) {
   return (
     <div className="h-screen flex flex-col justify-center items-center bg-gradient-to-r from-green-400 to-blue-500 text-white">
       <h1>{successfull}</h1>
-      <h2 className="text-lg  ">
+      <h2 className="text-lg">
         Name is: <span className=" font-bold">admin</span> Password is: <span className="font-bold">123</span>
       </h2>
       <div className="bg-white p-6 rounded-lg shadow-md w-11/12 md:w-1/2 lg:w-1/3">

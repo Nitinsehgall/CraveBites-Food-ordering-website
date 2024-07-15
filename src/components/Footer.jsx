@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Footer() {
   const footerContent = [
     { name: "Company", link: null, class: "policy  text-white " },
-    { name: "About us", link: '/aboutUs' ,class: "text-white "},
+    { name: "About us", link: '/aboutUs' ,class: "text-white ",bookMark:'#aboutUp'},
     { name: "Career", link: 'null' ,class: "text-white "},
     { name: "How it works", link: 'null' ,class: "text-white "},
   ];
@@ -35,7 +35,7 @@ function Footer() {
               <>
                 <ul>
                   <li>
-                    <Link className={element.class} to={element.link}>
+                    <Link className={element.class} to={element.link+element.bookMark} >
                       {element.name}
                     </Link>
                   </li>

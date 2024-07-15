@@ -23,15 +23,14 @@ function Myorder() {
   }, []);
   
   const location = useLocation();
-  console.log(myOrderData, "STATE");
+  console.log(location?.state?.totalAmount, "STATE");
 
   useEffect(() => {
-    if (location?.state) {
-      setMyOrderData(location?.state);
+    if (location?.state?.localData) {
+      setMyOrderData(location?.state?.localData);
       
     }
   }, [location?.state]);
-  console.log(location.state, "ls");
 
   // const fullDate =
   //   date.getDate() +
@@ -93,7 +92,7 @@ console.log(total,'total');
               </div>
             ))}
           </div>
-          <div>Total Amount is: {total} </div>
+          <div>Total Amount is: {location?.state?.totalAmount} </div>
         </div>
       )}
           </div>

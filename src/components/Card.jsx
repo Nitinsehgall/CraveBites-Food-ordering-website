@@ -58,11 +58,11 @@ function Card({ foodItems, setFoodItems, setCommonData }, props) {
   return (
     <>
       <div
-        className="card-parent"
+        className="card-parent "
         style={{ display: "flex", flexWrap: "wrap" }}
       >
         {foodItems?.map((element, index) => (
-          <div className="card" key={index}>
+          <div className="card w-3/4 sm:w-3/4 md:w-1/4 lg:w-1/5" key={index}>
             <div className="vegCheck flex justify-between">
               {element.isVeg == true ? (
                 <>

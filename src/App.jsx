@@ -22,6 +22,8 @@ const params = useParams()
   const [ commonData, setCommonData ] = useState()
   const [ isUserLogin, setIsUserLogin ] = useState(false)
 
+  console.log(commonData, "COMMON")
+
   useEffect(() => {
     
     if(params?.keys?.length == undefined){
@@ -40,7 +42,6 @@ const params = useParams()
     }
   }, [showNav]);
 
-  console.log(showNav, "STATE");
 
   const Context = cartDataContext
 
@@ -50,7 +51,7 @@ const params = useParams()
       <Context.Provider value={commonData}>
 
       
-      {isUserLogin && <Navbar  setIsUserLogin={setIsUserLogin}/>}
+      {isUserLogin && <Navbar setCommonData={setCommonData} setIsUserLogin={setIsUserLogin}/>}
         <Routes>
           <Route path="/" element={<LoginPage setIsUserLogin={setIsUserLogin}/>} />
           <Route

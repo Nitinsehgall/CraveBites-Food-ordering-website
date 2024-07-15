@@ -2,7 +2,8 @@ const aboutUsContent = [
     {
       type: "h1",
       text: "About Us",
-      class:"text-4xl font-bold text-center my-8 "
+      class:"text-4xl font-bold text-center my-8 ",
+      idName:'aboutUp'
     },
     {
       type: "h2",

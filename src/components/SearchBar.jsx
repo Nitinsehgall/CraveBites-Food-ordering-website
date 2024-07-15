@@ -18,13 +18,13 @@ function SearchBar({ foodItems, setFoodItems ,setCommonData}) {
   };
   return (
     <>
-      <div className="search-parent ">
+      <div className="search-parent w-full">
         <img src={searchLogo} alt="logo" />
         <input
           onInput={search}
           type="text"
           placeholder="Enter the item you want to search"
-          className="rounded"
+          className="rounded w-3/4 sm:w-3/4 md:w-1/2 lg:w-2/4"
         />
 
         <i className="fa-solid fa-magnifying-glass"></i>

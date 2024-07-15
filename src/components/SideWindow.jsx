@@ -3,15 +3,18 @@ import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
 import { cartDataContext } from "../utils/contextApi";
 import { useNavigate } from "react-router-dom";
+import Modal from "./Modal";
 
 const SideWindow = (props) => {
+
+  console.log(props, "PP")
   const [isOpen, setIsOpen] = React.useState(false);
   const toggleDrawer = () => {
     setIsOpen(!isOpen);
   };
 
+
   const [localData, setLocalData] = useState([]);
-  console.log(localData, "LOCAL");
 
   const ElementsOfCart = localData;
 
@@ -48,13 +51,18 @@ const SideWindow = (props) => {
     }
   }, [cartContext]);
 
+  console.log(total , "TOTAL")
+
   const handlePlaceOrder = () => {
+    
     navigate("/my-orders", {
-      state: localData,
+      state:{localData: localData,
+      totalAmount: total}
     });
+
     setIsOpen(!isOpen);
     setLocalData([])
-  
+  props?.setCommonData([])
 
   };
 

@@ -5,6 +5,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 *{
   font-family: "Roboto", sans-serif;
   font-weight: 400;
@@ -103,8 +104,8 @@ color: var(--YellowSecond);
 }
 .circle1{
   background-color: var(--YellowSecond);
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
   border-radius: 50%;
 
 }
@@ -123,6 +124,7 @@ color: var(--YellowSecond);
   border-radius: 50%;
 
 }
+
 .cirleDesigns{
   display: flex;
   justify-content: space-around;
@@ -342,7 +344,7 @@ footer p {
   
 }
 .search-parent input{
-  width: 30%;
+  /* width: 30%; */
   height: 40px;
   background-color: #fff;
   color:black;
@@ -372,12 +374,15 @@ color: black;
 .firstContainer{
   display: flex;
   width: 100%;
-  justify-content: space-around;
- height: inherit;
- background-color: var(--lightYellow);
-  justify-content: space-around;
+  position: relative;
+  /* top: 100px; */
+  /* justify-content: space-around; */
+ /* height: inherit; */
+ /* background-color: var(--lightYellow); */
+  justify-content: space-evenly;
 height: 500px;
 align-items: center;
+flex-wrap: wrap;
 }
 .foodHeading{
   color: #ffcb45;
@@ -388,14 +393,15 @@ align-items: center;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 10%;
-gap: 100%;
+ 
 }
 .LandingImg{
-  width: 42%;
+  width: 40%;
+  object-fit: contain;
   display: flex;
   justify-content: center;
   align-items: center;
+  
   flex-direction: column;
 }
 .LandingImg img{
@@ -433,10 +439,12 @@ gap: 100%;
 }
 
 @media only screen and (max-width: 1000px) {
+  
 .innerLandingCard{
   width: 100%;
   
 }
+
 
 .landingCard{
   width: 100%;
@@ -453,7 +461,9 @@ gap: 100%;
 
 
 @media only screen and (max-width: 600px) {
-
+  .cirleDesigns{
+    display: none;
+  }
 .navHome{
   display: none;
 }
@@ -502,21 +512,32 @@ gap: 100%;
     font-size: small;
   }
   .firstContainer{
-    flex-wrap: wrap;
-   
+    /* flex-wrap: wrap; */
+    /* height: 900px; */
+    display: flex;
+    height: auto;
+    justify-content: space-evenly;
+    flex-direction: column;
+  
+   /* overflow-x: hidden; */
   }
 
-  .LandingHeading{width: 100%;
-  margin-top:40px;}
-  .LandingImg{
+  .LandingHeading{
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 10%;
+    gap: 0;
+  }
+  .LandingImg{
+    width: 83%;
   }
   /* button{
     padding: 5px;
     border-radius: 10px;
   } */
- 
-  .circle1,.circle2,.circle3{display: none;}
  
 
 

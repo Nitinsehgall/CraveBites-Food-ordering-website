@@ -9,7 +9,7 @@ import Typography from '@mui/joy/Typography';
 export default function Faq() {
   return (
     <>
-    <div className='bg-slate-950 h-screen'>
+    <div className='bg-slate-950  p-24'>
 
     <Card
       size="lg"
@@ -27,7 +27,7 @@ export default function Faq() {
     >
       <CardOverflow
         variant="solid"
-        color="primary"
+        color="danger"
         sx={{
           flex: '0 0 200px',
           display: 'flex',
@@ -35,8 +35,9 @@ export default function Faq() {
           justifyContent: 'center',
           px: 'var(--Card-padding)',
         }}
+     
       >
-        <Typography fontSize="xl4" fontWeight="xl" textColor="#fff">
+        <Typography fontSize="xl4" fontWeight="xl" textColor="#fff" >
           89
         </Typography>
         <Typography textColor="primary.200">
