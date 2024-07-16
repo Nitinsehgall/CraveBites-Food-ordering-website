@@ -55,7 +55,7 @@ function Location(props) {
     <>
       <div>
         
-        {props.cityName} {cityName.city} ,{cityName.region}
+        {props.cityName} {cityName.city} {cityName.region}
       </div>
     </>
   );

@@ -23,9 +23,21 @@ function Footer() {
           
           <p>Haryana India</p>
           <p>
+            <Link to={'Facebook'}>
+            
           <i className="fa-brands m-2 fa-facebook"></i>
+            </Link>
+            <Link to={'Instagram'}>
+            
           <i className="fa-brands m-2 fa-instagram"></i>
+            </Link>
+            <Link to={'X'}>
+            
           <i className="fa-brands m-2 fa-x-twitter"></i>
+            </Link>
+            
+          {/* <i className="fa-brands m-2 fa-instagram"></i>
+          <i className="fa-brands m-2 fa-x-twitter"></i> */}
           </p>
         </div>
 

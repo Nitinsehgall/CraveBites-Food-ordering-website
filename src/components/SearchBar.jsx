@@ -12,7 +12,7 @@ function SearchBar({ foodItems, setFoodItems ,setCommonData}) {
       let inputEntry = inputValue.toLowerCase();
 
       return lowerCase.includes(inputEntry);
-    });
+    });  
     setFoodItems(filteredArray);
     console.log(filteredArray, "jshjkhd");
   };

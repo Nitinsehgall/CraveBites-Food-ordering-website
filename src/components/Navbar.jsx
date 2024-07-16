@@ -7,6 +7,7 @@ import Modal from "./Modal";
 import Badges from "./Badges";
 import { cartDataContext } from "../utils/contextApi";
 import Location from "./Location";
+import { TermsAndCondion } from "./TermsAndCondion";
 
 function Navbar(props) {
   const [openSider, setOpenSider] = useState(false);
@@ -38,18 +39,20 @@ function Navbar(props) {
 
   return (
     <>
+    
       <div className="NAVBAR w-full justify-center z-10   flex">
         <FlowbiteNavbar
           fluid
           rounded
           className="bg-slate-950 text-white rounded-none rounded-xl w-11/12 rounded-t-none fixed z-10 "
-        >
+          >
           <FlowbiteNavbar.Brand as={Link} to="/home">
             <span className="mr-3 self-center whitespace-nowrap text-xl font-semibold dark:text-white ">
               CraveBites
             </span>
             <i className="text-white text-xl fa-solid fa-utensils text-yellow-300"></i>
           </FlowbiteNavbar.Brand>
+          <TermsAndCondion/>
 
           <SideWindow
             show={
