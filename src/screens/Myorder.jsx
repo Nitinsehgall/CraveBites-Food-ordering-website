@@ -64,6 +64,8 @@ function Myorder() {
                 </h1>
                 <p className="text-center text-lg">
                   Your order has been placed successfully.
+                  <CheckCircleIcon color="danger" fontSize="medium" />
+
                 </p>
               </div>
               <div className="flex flex-col md:flex-row justify-between items-center mb-6">
