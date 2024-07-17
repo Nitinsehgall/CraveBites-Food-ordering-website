@@ -22,13 +22,14 @@ function LandingPage() {
     {
       Heading: "Best Quality",
       subHeading: "You can order from app or website",
-      img: "https://static.vecteezy.com/system/resources/previews/004/984/836/original/fast-food-delivery-app-flat-concept-illustration-vector.jpg",
+      img: "https://static.vecteezy.com/system/resources/previews/004/984/836/original/fast-food-delivery-app-flat-concept-illustration-vector.jpg",  
     },
   ];
 
   return (
     <>
-      <div className="firstContainer  bg-yellow-50 ">
+    <Crousal />
+      <div className="firstContainer  bg-yellow-50  ">
         <div className="LandingHeading">
           <div className="cirleDesigns">
             <div className="circle1"></div>
@@ -68,7 +69,7 @@ function LandingPage() {
         {divItem.map((element, index) => {
           return (
             <>
-              <div className="innerLandingCard ">
+              <div className="innerLandingCard  " key={index}>
                 <img src={element.img} alt="img" />
                 <h3 className="text-xl">{element.Heading}</h3>
                 <p>{element.subHeading}</p>

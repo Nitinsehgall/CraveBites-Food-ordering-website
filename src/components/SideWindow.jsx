@@ -13,7 +13,6 @@ const SideWindow = (props) => {
   
 
 
-  console.log(props, "PP")
   const [isOpen, setIsOpen] = React.useState(false);
   const toggleDrawer = () => {
     setIsOpen(!isOpen);
@@ -34,11 +33,10 @@ const SideWindow = (props) => {
     }
     
   }, []);
-  console.log(props.cartData,localData,  'ABC');
+
 
   const total = ElementsOfCart?.reduce((accumulator, currentvalue) => {
-    console.log(accumulator.TotalAmt + currentvalue.TotalAmt, "previous");
-    console.log(accumulator + currentvalue.TotalAmt);
+    
     return accumulator + currentvalue.TotalAmt;
   }, 0);
 
@@ -57,7 +55,7 @@ const SideWindow = (props) => {
     }
   }, [cartContext]);
 
-  console.log(cartContext , props?.setCommonData,"TOTAL")
+  
 
   const setCommonData = props?.setCommonData
 
@@ -74,7 +72,7 @@ const SideWindow = (props) => {
   };
 
   
-  console.log(cartContext, "YU");
+
   // useEffect(() => {
   //   if (props?.cartData.length) {
 //     setLocalData([...localData, props?.cartData]);
@@ -149,7 +147,7 @@ cartContext([])
             localData?.map((collectedData, index) => {
               return (
                 <>
-                  <div className="slider border-b">
+                  <div key={index} className="slider border-b">
                     <div className="innerDiv">
                       <div className="innerDiv1">
                         <img

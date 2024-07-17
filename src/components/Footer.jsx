@@ -17,21 +17,21 @@ function Footer() {
 
   return (
     <>
-      <div className="footerAll flex-wrap bg-slate-950">
+      <div className="footerAll flex-wrap bg-slate-950 mt-10">
         <div className="FooterAddress text-white">
           <h4>CraveBites</h4>
           
           <p>Haryana India</p>
           <p>
-            <Link to={'Facebook'}>
+            <Link to={'https://www.facebook.com/'} target="_blank" >
             
           <i className="fa-brands m-2 fa-facebook"></i>
             </Link>
-            <Link to={'Instagram'}>
+            <Link to={'https://www.instagram.com/'} target="_blank">
             
           <i className="fa-brands m-2 fa-instagram"></i>
             </Link>
-            <Link to={'X'}>
+            <Link to={'https://www.X.com/'} target="_blank">
             
           <i className="fa-brands m-2 fa-x-twitter"></i>
             </Link>
@@ -45,7 +45,7 @@ function Footer() {
           {footerContent.map((element, index) => {
             return (
               <>
-                <ul>
+                <ul key={index}>
                   <li>
                     <Link className={element.class} to={element.link} >
                       {element.name}
@@ -57,10 +57,10 @@ function Footer() {
           })}
         </div>
         <div className="FooterPolicy">
-          {FooterContent2.map((element) => {
+          {FooterContent2.map((element,index) => {
             return (
               <>
-                <ul>
+                <ul key={index}>
                   <li>
                     <Link className={element.class} to={element.link}>
                       {element.name}

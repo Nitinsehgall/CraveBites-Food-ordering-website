@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 function Faq() {
 
   return (
-    <div className='relative top-10 p-10 bg-yellow-50'>
+    <div className='relative top-10 p-10 bg-gradient-to-r from-green-400 to-blue-500'>
       <section className="bg-white dark:bg-gray-900">
         <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
           <h2 className="mb-8 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Frequently asked questions</h2>

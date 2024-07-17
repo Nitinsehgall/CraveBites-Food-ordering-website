@@ -9,7 +9,7 @@ export function Crousal() {
         className="h-56  sm:h-screen md:h-screen xl:h-100 2xl:h-screen rounded-none bg-black"
       >
         <Carousel
-          className="rounded-none carousel rounded-none"
+          className="rounded-none carousel rounded-none sm:mt-10 "
           slideInterval={1000}
         >
           <img

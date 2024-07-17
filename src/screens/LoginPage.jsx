@@ -14,7 +14,7 @@ function LoginPage({ setIsUserLogin }) {
 
   useEffect(() => {
     const storageItem = localStorage.getItem("isUserLoggedIn");
-    console.log(storageItem, "STOR");
+    
   
   }, []);
 

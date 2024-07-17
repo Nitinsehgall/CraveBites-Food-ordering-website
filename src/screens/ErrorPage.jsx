@@ -16,8 +16,8 @@ export default function ErrorPage() {
             <p className="text-base font-semibold text-yellow-900">
           
                 </p>
-            <h1 className="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">Under Developement</h1>
-            <p className="mt-6 text-base leading-7 text-gray-600">Sorry, we couldn’t find the page you’re looking for because this page is under developement</p>
+            <h1 className="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">Page Not Found</h1>
+            <p className="mt-6 text-base leading-7 text-gray-600">Sorry, we couldn’t find the page you’re looking</p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
                       
             <img className="w-20" src="https://png.pngtree.com/png-clipart/20221023/original/pngtree-sad-burger-mascot-png-image_8715780.png" alt="" />

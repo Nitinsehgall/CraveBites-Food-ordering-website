@@ -17,13 +17,13 @@ function Main({ commonData, setCommonData }) {
     }, 1000);
   }, []);
 
-  console.log(loader);
+
   return (
     <>
       {loader == true ? (
         <Loading />
       ) : (
-        <div className="Main">
+        <div className="Main mb-10">
          
           <SearchBar foodItems={foodItems} setFoodItems={setFoodItems} />
           <Card

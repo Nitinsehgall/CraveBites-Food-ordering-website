@@ -9,7 +9,7 @@ function Card({ foodItems, setFoodItems, setCommonData }, props) {
   useEffect(() => {
     setFoodItems(
       Items.map((item) => {
-        // console.log(item,Object.values(item.options[0]));
+        
         return { ...item, selectedOption: Object.values(item.options[0])[0] };
       })
     );
@@ -45,7 +45,6 @@ function Card({ foodItems, setFoodItems, setCommonData }, props) {
     setCartData([...cartData, element]);
     setCommonData([...cartData, element]);
   };
-console.log(foodItems);
   // const [total,setTotal]=useState(0)
   function handleIncrease(element, index, price) {
     const updateQuant = foodItems.map((e, i, arr) => {
@@ -53,7 +52,6 @@ console.log(foodItems);
         let newq = element.quantity + 1;
 
         let total = newq * parseInt(element.selectedOption);
-        console.log("totalprice is",element.selectedOption,  total);
         return { ...element, quantity: newq, TotalAmt: total };
       }
       return e;
@@ -68,7 +66,6 @@ console.log(foodItems);
         let newq = element.quantity - 1;
 
         let total = newq * parseInt(element.selectedOption);
-        console.log("totalprice is", total);
         return { ...element, quantity: newq, TotalAmt: total };
       }
       return e;

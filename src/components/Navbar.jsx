@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Badge, Navbar as FlowbiteNavbar } from "flowbite-react";
+import { Badge, Flowbite, Navbar as FlowbiteNavbar } from "flowbite-react";
 import SideWindow from "./SideWindow";
 import Modal from "./Modal";
 
@@ -29,7 +29,7 @@ function Navbar(props) {
   useEffect(() => {
     window.scrollTo(0,0)
   }, [pathname])
-  console.log(openSider, "OPEN SIDER");
+  
   const logout = () => {
     // setModal((modal) => !!modal);
 
@@ -39,17 +39,18 @@ function Navbar(props) {
   const cartContext = useContext(cartDataContext);
 
   cartContext?.filter((e) => {
-    console.log(e?.badgeNumber, "iam");
+  
   });
+
 
   return (
     <>
     
-      <div className="NAVBAR w-full justify-center z-10   flex">
+      <div className="NAVBAR w-full justify-center z-10 flex">
         <FlowbiteNavbar
           fluid
           rounded
-          className="bg-slate-950 text-white rounded-none rounded-xl w-11/12 rounded-t-none fixed z-10 "
+          className="bg-slate-950 text-white rounded-none w-full fixed z-10 "
           >
           <FlowbiteNavbar.Brand as={Link} to="/home">
             <span className="mr-3 self-center whitespace-nowrap text-xl font-semibold dark:text-white ">
@@ -71,7 +72,7 @@ function Navbar(props) {
             }
             setCommonData={props?.setCommonData}
           />
-          <FlowbiteNavbar.Toggle className="text-white bg-black hover:text-black" />
+          <FlowbiteNavbar.Toggle   className="text-white bg-black hover:text-black" />
           <FlowbiteNavbar.Collapse>
             <Location
               cityName={
@@ -80,7 +81,7 @@ function Navbar(props) {
             />
 
             {anchorNames.map((element, index) => (
-              <Link
+              <Link 
                 key={index}
                 as={Link}
                 to={element.link}
