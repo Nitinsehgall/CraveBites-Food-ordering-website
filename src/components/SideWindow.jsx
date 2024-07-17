@@ -1,11 +1,17 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
-import { cartDataContext } from "../utils/contextApi";
+import { cartDataContext ,contextApi} from "../utils/contextApi";
 import { useNavigate } from "react-router-dom";
 import Modal from "./Modal";
+import DeleteIcon from '@mui/icons-material/Delete';
+
 
 const SideWindow = (props) => {
+
+  const cartContext = useContext(cartDataContext);
+  
+
 
   console.log(props, "PP")
   const [isOpen, setIsOpen] = React.useState(false);
@@ -21,13 +27,14 @@ const SideWindow = (props) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log(props.cartData);
     if (props?.cartData) {
       setLocalData(props?.cartData);
     } else {
       setLocalData([]);
     }
+    
   }, []);
+  console.log(props.cartData,localData,  'ABC');
 
   const total = ElementsOfCart?.reduce((accumulator, currentvalue) => {
     console.log(accumulator.TotalAmt + currentvalue.TotalAmt, "previous");
@@ -43,7 +50,6 @@ const SideWindow = (props) => {
     }
   }, [props?.cartData]);
 
-  const cartContext = useContext(cartDataContext);
 
   useEffect(() => {
     if (cartContext?.length > 0) {
@@ -51,7 +57,9 @@ const SideWindow = (props) => {
     }
   }, [cartContext]);
 
-  console.log(total , "TOTAL")
+  console.log(cartContext , props?.setCommonData,"TOTAL")
+
+  const setCommonData = props?.setCommonData
 
   const handlePlaceOrder = () => {
     
@@ -63,16 +71,31 @@ const SideWindow = (props) => {
     setIsOpen(!isOpen);
     setLocalData([])
   props?.setCommonData([])
-
   };
 
+  
   console.log(cartContext, "YU");
   // useEffect(() => {
   //   if (props?.cartData.length) {
-  //     setLocalData([...localData, props?.cartData]);
+//     setLocalData([...localData, props?.cartData]);
   //   }
   // }, [props?.cartData]);
 
+  const deleteSlideData=()=>{
+    navigate('/home')
+   setLocalData([])
+   setCommonData([])
+   setIsOpen(!isOpen);
+ 
+
+    // props?.setCommonData([])
+  }
+  const navigateToMenu=()=>{
+    navigate('/menu')
+    setIsOpen(!isOpen);
+cartContext([])
+  }
+  
   return (
     <>
       {/* cart data ara h card componet se */}
@@ -87,9 +110,14 @@ const SideWindow = (props) => {
         lockBackgroundScroll={true}
         size={320}
       >
-        <h2 className="bg-black  text-white text-center p-3 drawerH2">
-          <span>CraveBites</span>
-          <i className="text-yellow-300 fa-solid fa-utensils"></i>
+
+        <h2 className="bg-black  text-white text-center p-3 drawerH2 flex justify-evenly">
+        <button onClick={deleteSlideData}>
+           <i className="fa-solid fa-trash text-red-600"></i>
+          
+          </button>
+          <span>CraveBites <i className="text-yellow-300 fa-solid fa-utensils"></i></span>
+          
         </h2>
         <div className="innerdiv2">
             {localData.length == 0 ? (
@@ -97,8 +125,9 @@ const SideWindow = (props) => {
                 <div className="flex flex-col justify-center items-center ">
                   <p className="text-xl">Empty Cart</p>
                   <button
-                    className=" w-full orderPlace bg-gray-500"
-                    disabled={true}
+                    className=" w-full orderPlace bg-green-600"
+                    onClick={navigateToMenu}
+                    
                   >
                     Choose Item From menu
                   </button>

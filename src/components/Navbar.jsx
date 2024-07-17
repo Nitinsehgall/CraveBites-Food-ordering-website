@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Badge, Navbar as FlowbiteNavbar } from "flowbite-react";
 import SideWindow from "./SideWindow";
 import Modal from "./Modal";
@@ -24,6 +24,11 @@ function Navbar(props) {
     setOpenSider(true);
   };
 
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    window.scrollTo(0,0)
+  }, [pathname])
   console.log(openSider, "OPEN SIDER");
   const logout = () => {
     // setModal((modal) => !!modal);
@@ -61,6 +66,7 @@ function Navbar(props) {
                   cartContext !== undefined ? cartContext.length : 0
                 }
                 cartData={cartContext}
+                setCommonData={props.setCommonData}
               />
             }
             setCommonData={props?.setCommonData}

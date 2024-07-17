@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Loading from '../components/Loading'
+import Loading from "../components/Loading";
+
 function LoginPage({ setIsUserLogin }) {
   const name = "admin";
   const password = "123";
@@ -14,19 +15,21 @@ function LoginPage({ setIsUserLogin }) {
   useEffect(() => {
     const storageItem = localStorage.getItem("isUserLoggedIn");
     console.log(storageItem, "STOR");
+  
   }, []);
 
   const inputName = (e) => {
-    setInputVal(e.target.value);
-    console.log(e);
+    setInputVal(e.target.value.toLowerCase());
+    
   };
 
   const inputPassword = (e) => {
-    setPass(e.target.value);
-    console.log(inputPass);
+    
+      setPass(e.target.value);
   };
 
   const callLanding = () => {
+    
     if (inputVal === name && inputPass === password) {
       navigate("/home");
       setSuccessfull("Logged in successfully");
@@ -41,12 +44,16 @@ function LoginPage({ setIsUserLogin }) {
   return (
     <div className="h-screen flex flex-col justify-center items-center bg-gradient-to-r from-green-400 to-blue-500 text-white">
       <h1>{successfull}</h1>
-      <h2 className="text-lg">
-        Name is: <span className=" font-bold">admin</span> Password is: <span className="font-bold">123</span>
+      <h2 className="text-lg bg-slate-900 w-4/5 md:w-1/4 lg:w-1/4 text-center">
+        Name is: <span className=" font-bold">Admin</span> Password is:{" "}
+        <span className="font-bold">123</span>
       </h2>
       <div className="bg-white p-6 rounded-lg shadow-md w-11/12 md:w-1/2 lg:w-1/3">
         <div className="flex flex-col items-center">
-          <h1 className="text-2xl font-bold mb-4 text-black">Welcome to CraveBites <i className="text-yellow-300 fa-solid fa-utensils"></i></h1>
+          <h1 className="text-2xl font-bold mb-4 text-black">
+            Welcome to CraveBites{" "}
+            <i className="text-yellow-300 fa-solid fa-utensils"></i>
+          </h1>
           <img
             className="rounded-md w-32 h-32 md:w-48 md:h-48"
             src="https://www.freeiconspng.com/thumbs/fast-food-png/fast-food-png-most-popular-fast-food-snacks-in-your-area-and-most--3.png"

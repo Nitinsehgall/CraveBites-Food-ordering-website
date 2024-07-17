@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import SideWindow from "./SideWindow";
 import Items from "../content/Items";
+import { useLocation } from "react-router-dom";
 
 function Card({ foodItems, setFoodItems, setCommonData }, props) {
   const [cartData, setCartData] = useState([]);
@@ -13,38 +14,58 @@ function Card({ foodItems, setFoodItems, setCommonData }, props) {
       })
     );
   }, []);
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    window.scrollTo(0,0)
+  }, [pathname])
+  
 
   const choose = (val, index, element) => {
+    
+    
     const amount = parseInt(val.target.value);
 
     const updatedItems = foodItems.map((element, i) => {
+    
       if (i === index) {
-        return { ...element, selectedOption: amount };
+
+        return { ...element, selectedOption: amount, quantity: 0 };
       }
       return element;
     });
     setFoodItems(updatedItems);
   };
-  const [badgeIncrease,setBadgeIncrease]=useState(1)
+  const [badgeIncrease, setBadgeIncrease] = useState(1);
 
-  const addToCart = (element, index,) => {
-    
+  const addToCart = (element, index) => {
     setShowSider(true);
-    setBadgeIncrease(badgeIncrease+1)
+    setBadgeIncrease(badgeIncrease + 1);
 
-    setCartData([...cartData, element,]);
-    setCommonData([...cartData, element,]);
-    
-    
-
+    setCartData([...cartData, element]);
+    setCommonData([...cartData, element]);
   };
-
-
+console.log(foodItems);
   // const [total,setTotal]=useState(0)
   function handleIncrease(element, index, price) {
     const updateQuant = foodItems.map((e, i, arr) => {
-      if (i == index) {
+      if (e.id == element.id) {
         let newq = element.quantity + 1;
+
+        let total = newq * parseInt(element.selectedOption);
+        console.log("totalprice is",element.selectedOption,  total);
+        return { ...element, quantity: newq, TotalAmt: total };
+      }
+      return e;
+    });
+    setFoodItems(updateQuant);
+  }
+
+  const handleDecrease=(element, index, price)=>{
+    
+    const updateQuant = foodItems.map((e, i, arr) => {
+      if (element.id == e.id &&element.quantity>0) {
+        let newq = element.quantity - 1;
 
         let total = newq * parseInt(element.selectedOption);
         console.log("totalprice is", total);
@@ -87,7 +108,7 @@ function Card({ foodItems, setFoodItems, setCommonData }, props) {
 
             <div className="innerCard">
               {element.quantDivide && (
-                <select
+                <select 
                   name="quantity"
                   id="choose"
                   value={element.selectedOption}
@@ -104,7 +125,13 @@ function Card({ foodItems, setFoodItems, setCommonData }, props) {
               )}
               <div className="btnCard">
                 <div className="innerBtn">
-                  <button>-</button>
+                  <button
+                    onClick={() =>
+                      handleDecrease(element, index, element.selectedOption)
+                    }
+                  >
+                    -
+                  </button>
                   <p>{element.quantity}</p>
                   <button
                     onClick={() =>
@@ -129,7 +156,11 @@ function Card({ foodItems, setFoodItems, setCommonData }, props) {
               ) : (
                 <>
                   <div className=" Card-btn bg-gradient-to-r from-red-600 to-blue-500 text-white">
-                    <button onClick={() => addToCart(element, index,element.quantity)}>
+                    <button
+                      onClick={() =>
+                        addToCart(element, index, element.quantity)
+                      }
+                    >
                       Add to Cart
                     </button>
                   </div>

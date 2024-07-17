@@ -47,7 +47,7 @@ function Footer() {
               <>
                 <ul>
                   <li>
-                    <Link className={element.class} to={element.link+element.bookMark} >
+                    <Link className={element.class} to={element.link} >
                       {element.name}
                     </Link>
                   </li>

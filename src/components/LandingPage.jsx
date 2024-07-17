@@ -64,19 +64,7 @@ function LandingPage() {
       </div>
 
       <LandingPage2 />
-      <div
-        className="secondContainer flex h-96 bg-yellow-50
-      "
-      >
-        <h1 className="text-xl font-bold">How it works</h1>
-        <h1 className="text-yellow-300 text-2xl font-bold">What We Serve</h1>
-        <p>
-          Product Quality is Out Priority,And Always Guarantees Freshness and
-          safety Until it is in your hands.
-        </p>
-      </div>
-
-      <div className="landingCard">
+      <div className="landingCard mb-12">
         {divItem.map((element, index) => {
           return (
             <>
@@ -89,6 +77,19 @@ function LandingPage() {
           );
         })}
       </div>
+      <div
+        className="secondContainer flex h-60 bg-yellow-50
+      "
+      >
+        <h1 className="text-xl font-bold">How it works</h1>
+        <h1 className="text-yellow-300 text-2xl font-bold">What We Serve</h1>
+        <p>
+          Product Quality is Out Priority,And Always Guarantees Freshness and
+          safety Until it is in your hands.
+        </p>
+      </div>
+
+      
       <Footer2 />
     </>
   );

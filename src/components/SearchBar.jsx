@@ -15,6 +15,7 @@ function SearchBar({ foodItems, setFoodItems ,setCommonData}) {
     });  
     setFoodItems(filteredArray);
     console.log(filteredArray, "jshjkhd");
+   
   };
   return (
     <>

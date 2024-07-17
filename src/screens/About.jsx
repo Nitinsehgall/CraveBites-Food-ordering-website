@@ -1,16 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import aboutUsContent from "../content/aboutUsContent";
 import Footer from "../components/Footer";
+import { useLocation } from "react-router-dom";
 
 
 function About() {
+
+  
   return (
     <>
       {/* <Navbar /> */}
-      <div className="about p-6 bg-gray-100 relative top-10 " >
+      <div className="relative top-10 p-10 bg-yellow-50" >
       
-        <div className="max-w-4xl mx-auto">
+        <div className="bg-white dark:bg-gray-900 p-5 ">
   
           {aboutUsContent.map((element, index) => (
             <div key={index} className="my-4"   >

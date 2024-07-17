@@ -5,6 +5,7 @@ import { useLocation } from "react-router-dom";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
 import { cartDataContext } from "../utils/contextApi";
+import Loading from "../components/Loading";
 
 function Myorder() {
   const date = new Date();
@@ -45,11 +46,21 @@ function Myorder() {
   const fullDate = date.toLocaleDateString();
   const day = date.getDay();
   const random = crypto.randomUUID();
+  const [loader, setLoader] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoader(!loader);
+    }, 1000);
+  }, []);
+ 
 
   // console.log(myOrderData, "myOrderData");
 console.log(total,'total');
   return (
     <>
+    {loader==true?<Loading/>:
+
     <div className="relative m-11">
 
       {cartContext == undefined || myOrderData?.length === 0 ? (
@@ -64,7 +75,7 @@ console.log(total,'total');
         </div>
       ) : (
         <div className="container mx-auto min-h-screen p-6">
-          <h1 className="text-2xl text-center mb-6">
+          <h1 className="text-2xl text-center mb-6 ">
             Order Placed Successfully
             <CheckCircleIcon color="primary" fontSize="medium" />
           </h1>
@@ -72,6 +83,7 @@ console.log(total,'total');
             <p className="text-lg text-gray-700">OrderId: {random}</p>
             <p className="text-lg">{fullDate}</p>
           </div>
+          <div>Total Amount is: {location?.state?.totalAmount} </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {myOrderData?.map((e, i) => (
               <div
@@ -92,10 +104,10 @@ console.log(total,'total');
               </div>
             ))}
           </div>
-          <div>Total Amount is: {location?.state?.totalAmount} </div>
+            
         </div>
       )}
-          </div>
+          </div>}
     </>
   );
 }
