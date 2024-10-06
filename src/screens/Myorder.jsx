@@ -1,6 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import Navbar from "../components/Navbar";
-import { Crousal } from "../components/Crousal";
 import { useLocation } from "react-router-dom";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
@@ -9,8 +7,6 @@ import Loading from "../components/Loading";
 
 function Myorder() {
   const date = new Date();
-  const [curDate, setCurDate] = useState(date);
-  const [total, setTotal] = useState();
   const [myOrderData, setMyOrderData] = useState();
   
   const cartContext = useContext(cartDataContext);
@@ -30,7 +26,7 @@ function Myorder() {
   }, [location?.state]);
 
   const fullDate = date.toLocaleDateString();
-  const day = date.getDay();
+
   const random = crypto.randomUUID();
   const [loader, setLoader] = useState(true);
 

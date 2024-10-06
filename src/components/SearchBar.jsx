@@ -1,22 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import searchLogo from "../assets/Images/SearchLogos.png";
 import Items from "../content/Items";
 
-function SearchBar({ foodItems, setFoodItems ,setCommonData}) {
+function SearchBar({ foodItems, setFoodItems, setCommonData }) {
   const search = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     let inputValue = e.target.value;
-
-    let filteredArray = Items.filter((item, index) => {
+    let filteredArray = Items?.filter((item, index) => {
       let lowerCase = item?.name?.toLowerCase();
       let inputEntry = inputValue.toLowerCase();
-
       return lowerCase.includes(inputEntry);
-    });  
+    });
     setFoodItems(filteredArray);
-    console.log(filteredArray, "jshjkhd");
-   
+ 
   };
+  
   return (
     <>
       <div className="search-parent w-full">

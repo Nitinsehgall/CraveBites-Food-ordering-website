@@ -6,7 +6,7 @@ import Modal from "./Modal";
 
 import Badges from "./Badges";
 import { cartDataContext } from "../utils/contextApi";
-import Location from "./Location";
+// import Location from "./Location";
 import { TermsAndCondion } from "./TermsAndCondion";
 
 function Navbar(props) {
@@ -74,11 +74,11 @@ function Navbar(props) {
           />
           <FlowbiteNavbar.Toggle   className="text-white bg-black hover:text-black" />
           <FlowbiteNavbar.Collapse>
-            <Location
+            {/* <Location
               cityName={
                 <i className="text-blue-500 fa-solid fa-location-dot"></i>
               }
-            />
+            /> */}
 
             {anchorNames.map((element, index) => (
               <Link 

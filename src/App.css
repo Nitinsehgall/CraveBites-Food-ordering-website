@@ -258,10 +258,7 @@ h4 span{
   /* background-color: green; */
 
 }
-.card:hover .totalAmtt{
-  color: red;
-  font-weight: bold;
-}
+
 .totalAmtt{
   
   font-weight: bold;

@@ -10,7 +10,7 @@ import {
 import { ExclamationTriangleIcon, LinkIcon } from "@heroicons/react/24/outline";
 import { Link, useNavigate } from "react-router-dom";
 
-export default function Modal({   setModal, modal}) {
+export default function Modal({ setIsUserLogin, setModal, modal }) {
   const [open, setOpen] = useState(true);
   const navigate = useNavigate();
   const handleNavigateToLogin = () => {
@@ -19,10 +19,9 @@ export default function Modal({   setModal, modal}) {
   };
 
   const handleClick = () => {
-    setOpen(false)
-    setModal(!modal)
-
-  }
+    setOpen(false);
+    setModal(!modal);
+  };
   return (
     <Dialog open={open} onClose={handleClick} className="relative z-10">
       <DialogBackdrop

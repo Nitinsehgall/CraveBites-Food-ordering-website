@@ -15,7 +15,7 @@ import ContactUs from "./components/ContactUs";
 import Faq from "./screens/Faq";
 
 function App() {
-  const [showNav, setShowNav] = useState(false);
+
   const params = useParams();
   const [commonData, setCommonData] = useState();
   const [isUserLogin, setIsUserLogin] = useState(false);
@@ -23,7 +23,6 @@ function App() {
  
 
   useEffect(() => {
-    const locatStorage = localStorage.getItem('isUserLoggedIn');
   
     if (params?.keys?.length == undefined) {
       setIsUserLogin(false);
@@ -32,14 +31,6 @@ function App() {
     }
   }, []);
   
-  
-  useEffect(() => {
-    const checkLoggedUser = localStorage.getItem("isUserLoggedIn");
-    if (checkLoggedUser) {
-      setShowNav(true);
-    }
-  }, [showNav]);
-
   const Context = cartDataContext;
 
   return (

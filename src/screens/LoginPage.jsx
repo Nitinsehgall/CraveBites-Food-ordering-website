@@ -11,13 +11,6 @@ function LoginPage({ setIsUserLogin }) {
   const [intial, setIntial] = useState(false);
 
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const storageItem = localStorage.getItem("isUserLoggedIn");
-    
-  
-  }, []);
-
   const inputName = (e) => {
     setInputVal(e.target.value.toLowerCase());
     
@@ -45,7 +38,7 @@ function LoginPage({ setIsUserLogin }) {
     <div className="h-screen flex flex-col justify-center items-center bg-gradient-to-r from-green-400 to-blue-500 text-white">
       <h1>{successfull}</h1>
       <h2 className="text-lg bg-slate-900 w-4/5 md:w-1/4 lg:w-1/4 text-center">
-        Name is: <span className=" font-bold">Admin</span> Password is:{" "}
+        Name is: <span className=" font-bold">admin</span> Password is:{" "}
         <span className="font-bold">123</span>
       </h2>
       <div className="bg-white p-6 rounded-lg shadow-md w-11/12 md:w-1/2 lg:w-1/3">

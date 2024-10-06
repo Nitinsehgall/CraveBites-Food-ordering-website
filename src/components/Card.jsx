@@ -95,12 +95,13 @@ function Card({ foodItems, setFoodItems, setCommonData }, props) {
                   </div>
                 </>
               )}
-              <p className="text-red-600 totalAmtt">{element.TotalAmt}</p>
+              {element.TotalAmt==undefined?<></> :<>
+              <p className="text-blue-950 totalAmtt"> Rs {element.TotalAmt}</p></>}
               {/* {showSider && <SideWindow cartData={cartData} />} */}
             </div>
             <img src={element.src} height={"150px"} alt="imglogo" />
-            <h3 className="text-2xl">
-              {element.name}:{element.selectedOption}
+            <h3 className="text-xl">
+              {element.name} ₹{element.selectedOption}
             </h3>
 
             <div className="innerCard">

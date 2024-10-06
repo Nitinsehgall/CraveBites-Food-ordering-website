@@ -3,8 +3,6 @@ import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
 import { cartDataContext ,contextApi} from "../utils/contextApi";
 import { useNavigate } from "react-router-dom";
-import Modal from "./Modal";
-import DeleteIcon from '@mui/icons-material/Delete';
 
 
 const SideWindow = (props) => {
@@ -73,12 +71,6 @@ const SideWindow = (props) => {
 
   
 
-  // useEffect(() => {
-  //   if (props?.cartData.length) {
-//     setLocalData([...localData, props?.cartData]);
-  //   }
-  // }, [props?.cartData]);
-
   const deleteSlideData=()=>{
     navigate('/home')
    setLocalData([])
@@ -86,7 +78,7 @@ const SideWindow = (props) => {
    setIsOpen(!isOpen);
  
 
-    // props?.setCommonData([])
+   
   }
   const navigateToMenu=()=>{
     navigate('/menu')
@@ -96,7 +88,7 @@ cartContext([])
   
   return (
     <>
-      {/* cart data ara h card componet se */}
+
 
       <button onClick={toggleDrawer}>{props.show}</button>
       <Drawer
